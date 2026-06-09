@@ -24,7 +24,7 @@ import ReactFiberReconciler, {
 } from 'react-reconciler';
 import { ConcurrentRoot } from 'react-reconciler/constants.js';
 import * as HostConfig from './ReactKonvaHostConfig.js';
-import { applyNodeProps, toggleStrictMode } from './makeUpdates.js';
+import { applyNodeProps, toggleStrictMode, _injectFlush } from './makeUpdates.js';
 import { useContextBridge, FiberProvider } from 'its-fine';
 import { Container } from 'konva/lib/Container.js';
 
@@ -219,6 +219,12 @@ export const version = '{VERSION}';
 
 // @ts-ignore
 export const KonvaRenderer = ReactFiberReconciler(HostConfig);
+
+// Konva event handlers (bound in makeUpdates) flush pending reconciler work
+// inline after the user handler returns, so Konva code that synchronously
+// reads node state right after firing an event (Transformer.update) sees the
+// committed result. See wrapEventHandler in makeUpdates.ts.
+_injectFlush(() => (KonvaRenderer as any).flushSyncWork());
 
 // we should inject into dev tools, but it is not working with React 19.2
 // with error "Invalid argument not valid semver ('' received)"
