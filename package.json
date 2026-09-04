@@ -20,7 +20,7 @@
   "module": "es/ReactKonva.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:konvajs/react-konva.git"
+    "url": "git+ssh://git@github.com/konvajs/react-konva.git"
   },
   "dependencies": {
     "@types/react-reconciler": "^0.33.0",
