@@ -49,6 +49,8 @@ export default function App() {
 }
 ```
 
+> **Building a full design editor?** [Polotno](https://polotno.com/?utm_source=konvajs&utm_medium=readme&utm_content=react-konva) is a commercial design editor SDK built on Konva by the Konva maintainers. It ships templates, text editing, and export, so you integrate an editor instead of building one: `npm install polotno`.
+
 To get more info about `Konva` you can read
 [Konva Overview](https://konvajs.org/docs/overview.html).
 
@@ -291,28 +293,6 @@ class App extends Component {
   }
 }
 ```
-
-## Comparisons
-
-### react-konva vs react-canvas
-
-[react-canvas](https://github.com/Flipboard/react-canvas) is a completely
-different react plugin. It allows you to draw DOM-like objects (images, texts)
-on canvas element in very performant way. It is NOT about drawing graphics, but
-react-konva is exactly for drawing complex graphics on `<canvas>` element from
-React.
-
-### react-konva vs react-art
-
-[react-art](https://github.com/reactjs/react-art) allows you to draw graphics on
-a page. It also supports SVG for output. But it has no support of events of
-shapes.
-
-### react-konva vs vanilla canvas
-
-Vanilla canvas is faster because when you use `react-konva` you have two layers of abstractions. Konva framework is on top of canvas and React is on top of Konva.
-Depending on the use case this approach can be slow.
-The purpose of `react-konva` is to reduce the complexity of the application and use well-known declarative way for drawing on canvas.
 
 ## [CHANGELOG](https://github.com/konvajs/react-konva/releases)
 

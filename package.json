@@ -1,14 +1,20 @@
 {
   "license": "MIT",
   "name": "react-konva",
-  "description": "React binding to canvas element via Konva framework",
-  "version": "19.2.5",
+  "description": "React components for the Konva 2d canvas library. Build interactive graphics, design editors, and whiteboards with JSX.",
   "keywords": [
     "react",
     "canvas",
     "jsx",
-    "konva"
+    "konva",
+    "graphics",
+    "design-editor",
+    "canvas-editor",
+    "whiteboard",
+    "transformer"
   ],
+  "homepage": "https://konvajs.org/docs/react/index.html",
+  "version": "19.2.5",
   "bugs": "https://github.com/konvajs/react-konva/issues",
   "main": "lib/ReactKonva.js",
   "module": "es/ReactKonva.js",
@@ -45,7 +51,7 @@
     "@types/react": "19.2.14",
     "@vitest/browser": "^4.0.18",
     "@vitest/browser-playwright": "^4.0.18",
-    "konva": "^10.2.0",
+    "konva": "^10.3.3",
     "mobx": "^6.13.5",
     "mobx-react-lite": "^4.1.0",
     "playwright": "^1.58.2",
