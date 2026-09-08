@@ -18,6 +18,32 @@
   "bugs": "https://github.com/konvajs/react-konva/issues",
   "main": "lib/ReactKonva.js",
   "module": "es/ReactKonva.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./es/ReactKonvaCore.d.ts",
+        "default": "./es/ReactKonva.js"
+      },
+      "require": {
+        "types": "./lib/ReactKonvaCore.d.ts",
+        "default": "./lib/ReactKonva.js"
+      }
+    },
+    "./lib/*.js": {
+      "import": "./es/*.js",
+      "require": "./lib/*.js"
+    },
+    "./lib/*.d.ts": "./lib/*.d.ts",
+    "./lib/*": {
+      "import": "./es/*.js",
+      "require": "./lib/*.js"
+    },
+    "./es/*.js": "./es/*.js",
+    "./es/*.d.ts": "./es/*.d.ts",
+    "./es/package.json": "./es/package.json",
+    "./es/*": "./es/*.js",
+    "./*": "./*"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/konvajs/react-konva.git"
@@ -70,7 +96,7 @@
     "test:browser": "vitest run && npm run test:prod",
     "test:performance": "NODE_ENV=production vitest run --config benchmarks/vitest.counts.config.mts",
     "test:prod": "NODE_ENV=production vitest run",
-    "test:ssr": "npm run build && node --no-experimental-detect-module test/11-ssr.mjs",
+    "test:ssr": "npm run build && node --no-experimental-detect-module test/11-ssr.mjs && node test/24-package-exports.mjs",
     "bench:events": "node benchmarks/run.mjs",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",

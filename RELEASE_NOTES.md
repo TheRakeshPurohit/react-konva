@@ -11,7 +11,7 @@ unchanged until the maintainer chooses the release version.
 - Stage accepts an optional `eventBatchFunc`, such as MobX `runInAction`. It wraps native Konva work inside the React batch, so reactions finish before React commits. Shared callbacks remain deduplicated across Stages.
 - Direct programmatic `fire()` and drag calls outside a native input batch use normal asynchronous React scheduling. They do not force a canvas render after each handler. This preserves batching for event bursts and avoids forced flushing from React lifecycle methods.
 - Stage refs support React ref cleanup callbacks. Removed descendants release react-konva listeners. Suspense visibility changes request drawing when automatic drawing is disabled.
-- Server rendering works through the built CommonJS and ES-module entry points. The ES output declares its module type.
+- Package exports route ES-module imports to the ES build and CommonJS imports to the CommonJS build. Existing minimal imports, with or without `.js`, remain supported. The ES output declares its module type.
 - Type declarations remove `getPublicInstance` and `getNativeNode`, which never existed at runtime. Code referencing those declarations must use node refs. Group props use Konva's container configuration.
 
 ## Timing and compatibility
@@ -23,6 +23,10 @@ This fallback does not provide the new native-input commit deadline or fix bugs
 inside historical Konva releases. Use latest Konva for the full synchronization
 and Transformer improvements. The JSX prop composes with the renderer's Stage
 hook; replacing that hook through a ref remains unsupported.
+
+With Konva 10, Node ES-module imports no longer depend on `require(ESM)` support.
+CommonJS `require('react-konva')` still needs a Node version that supports loading
+ES modules through `require`. See [Node's module compatibility documentation](https://nodejs.org/api/modules.html#loading-ecmascript-modules-using-require).
 
 DOM-owned state updated by native canvas input now commits synchronously when
 the hook is available. Large DOM updates can therefore increase event duration.
@@ -54,7 +58,7 @@ Verified with registry Konva 10.5.0:
 
 - Chromium, Firefox, and WebKit: 142 correctness tests in both development and production, plus 38 performance checks in each browser. No skipped or expected-failure tests.
 - Minimum React and React DOM 19.2.0: the same full Chromium suite passes. The three-browser runs use React 19.2.8.
-- Built CommonJS and ES-module imports, server rendering with and without the optional hook, consumer types, and package contents pass validation.
+- Built CommonJS and ES-module imports, server rendering with and without the optional hook, consumer types, and package contents pass validation. Packed-package tests cover imports without `require(ESM)`, minimal imports, CommonJS, and TypeScript NodeNext, Bundler, and legacy Node resolution.
 
 The installed Konva files match the registry tarball. No local Konva patches are
 needed.
