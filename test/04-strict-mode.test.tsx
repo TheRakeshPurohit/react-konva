@@ -37,16 +37,18 @@ describe('§4 StrictMode', () => {
         <Layer />
       </Stage>
     );
-    render(
+    const view = render(
       <React.StrictMode>
         <App />
       </React.StrictMode>
     );
-    // In dev StrictMode the ref callback runs at least twice (set/clear/set).
-    // The final settled ref must be a live Konva.Stage; intermediate clears
-    // (null) are allowed but the last call must not be null.
-    const lastNonNull = [...calls].reverse().find((c) => c !== null);
-    expect(lastNonNull).toBeInstanceOf(Konva.Stage);
+    const stage = view.stage();
+    expect(calls).toEqual(
+      process.env.NODE_ENV === 'production' ? [stage] : [stage, null, stage]
+    );
+    expect(calls[calls.length - 1]).toBeInstanceOf(Konva.Stage);
+    view.unmount();
+    expect(calls[calls.length - 1]).toBeNull();
   });
 
   it('§4.3 FiberProvider survives StrictMode double-mount (context bridge intact)', () => {
@@ -76,7 +78,7 @@ describe('§4 StrictMode', () => {
   // was tautological — observedFills records every render's fill and rect.fill()
   // is necessarily one of them. The real "StrictMode doesn't break react-konva"
   // contract is anchored elsewhere: §4.1 (no leaked Stage), §4.2 (ref callback
-  // settles to a live Stage), §4.7 (no duplicate event listeners).
+  // settles to a live Stage), §4.6 (no duplicate event listeners).
 
   it('§4.4 global useStrictMode(true) overwrites Konva-side prop changes', () => {
     // Mirror of §1.10 (which proves the default behavior preserves manual

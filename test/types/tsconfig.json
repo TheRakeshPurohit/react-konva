@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["ES2020", "DOM", "ESNext.Collection"],
+    "noEmit": true
+  },
+  "include": ["./consumer.tsx"]
+}

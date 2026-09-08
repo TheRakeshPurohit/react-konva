@@ -13,14 +13,29 @@ jobs:
     strategy:
       matrix:
         node-version: [24.x]
+        browser: [chromium, firefox, webkit]
+
+    env:
+      BROWSER: ${{ matrix.browser }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps "$BROWSER"
       - run: npm run test
+
+  minimum-react:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+      - run: npm install --save-dev konva@latest react@19.2.0 react-dom@19.2.0
+      - run: npx playwright install --with-deps chromium
+      - run: npm test

@@ -6,6 +6,8 @@ const propsToSkip = {
   key: true,
   style: true,
   forwardedRef: true,
+  // Stage's native input boundary is owned by the renderer.
+  eventBatchFunc: true,
   unstable_applyCache: true,
   unstable_applyDrawHitFromCache: true,
 };
@@ -33,34 +35,6 @@ For more info see: https://github.com/konvajs/react-konva/issues/194
 
 const EMPTY_PROPS = {};
 
-// Konva internals synchronously read node state right after firing events —
-// e.g. Transformer fires "transform", the user handler calls setState, and
-// Transformer.update() immediately repositions its anchors from the node.
-// React commits async (microtask), so without a flush the chrome is measured
-// from the stale node on every event. Draining the reconciler's pending sync
-// work right after the user handler returns keeps Konva's read-after-fire
-// contract. Injected from ReactKonvaCore to avoid an import cycle.
-let flushPendingWork = () => {};
-export function _injectFlush(fn: () => void) {
-  flushPendingWork = fn;
-}
-
-let isFlushing = false;
-function wrapEventHandler(handler) {
-  return function (...args) {
-    const result = handler.apply(this, args);
-    if (!isFlushing) {
-      isFlushing = true;
-      try {
-        flushPendingWork();
-      } finally {
-        isFlushing = false;
-      }
-    }
-    return result;
-  };
-}
-
 export function applyNodeProps(instance, props, oldProps = EMPTY_PROPS) {
   // don't use zIndex in react-konva
   if (!zIndexWarningShowed && 'zIndex' in props) {
@@ -77,6 +51,9 @@ export function applyNodeProps(instance, props, oldProps = EMPTY_PROPS) {
       dragWarningShowed = true;
     }
   }
+
+  var updatedProps = {};
+  var hasUpdates = false;
 
   // check old props
   // we need to unset properties that are not in new props
@@ -97,20 +74,18 @@ export function applyNodeProps(instance, props, oldProps = EMPTY_PROPS) {
           eventName.substr(7, 1).toUpperCase() +
           eventName.substr(8);
       }
-      // the bound listener is a wrapper, not the user handler, so remove by
-      // our namespace (react-konva binds at most one listener per event there)
+      // Remove by namespace because react-konva binds at most one listener
+      // for each event in that namespace.
       instance.off(eventName + EVENTS_NAMESPACE);
     }
     var toRemove = !props.hasOwnProperty(key);
-    if (toRemove) {
-      instance.setAttr(key, undefined);
+    if (!isEvent && toRemove) {
+      updatedProps[key] = undefined;
+      hasUpdates = true;
     }
   }
 
   var strictUpdate = useStrictMode || props._useStrictMode;
-  var updatedProps = {};
-  var hasUpdates = false;
-
   const newEvents = {};
 
   for (var key in props) {
@@ -154,7 +129,7 @@ export function applyNodeProps(instance, props, oldProps = EMPTY_PROPS) {
     // first clear any existing listeners, it is required for strict mode
     instance.off(eventName + EVENTS_NAMESPACE);
     // then attach new one
-    instance.on(eventName + EVENTS_NAMESPACE, wrapEventHandler(newEvents[eventName]));
+    instance.on(eventName + EVENTS_NAMESPACE, newEvents[eventName]);
   }
 }
 

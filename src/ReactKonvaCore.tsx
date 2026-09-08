@@ -17,37 +17,16 @@ if (React.version.indexOf('19') === -1) {
 
 import Konva from 'konva/lib/Core.js';
 import type { Stage as KonvaStage } from 'konva/lib/Stage.js';
-import ReactFiberReconciler, {
-  RootTag,
-  SuspenseHydrationCallbacks,
-  TransitionTracingCallbacks,
-} from 'react-reconciler';
+import ReactFiberReconciler from 'react-reconciler';
 import { ConcurrentRoot } from 'react-reconciler/constants.js';
 import * as HostConfig from './ReactKonvaHostConfig.js';
-import { applyNodeProps, toggleStrictMode, _injectFlush } from './makeUpdates.js';
+import { getEventBatch } from './EventBatch.js';
+import {
+  applyNodeProps,
+  toggleStrictMode,
+  EVENTS_NAMESPACE,
+} from './makeUpdates.js';
 import { useContextBridge, FiberProvider } from 'its-fine';
-import { Container } from 'konva/lib/Container.js';
-
-/**
- * React 19 introduced a new `ReactFiberReconciler.createContainer` signature
- * with more error handling options [1]. The DefinitelyTyped types are also
- * out of date because of this [2].
- *
- * 1. https://github.com/facebook/react/commit/a0537160771bafae90c6fd3154eeead2f2c903e7
- * 2. https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-reconciler/index.d.ts#L920
- */
-type NewCreateContainer = (
-  containerInfo: Container,
-  tag: RootTag,
-  hydrationCallbacks: null | SuspenseHydrationCallbacks<any>,
-  isStrictMode: boolean,
-  concurrentUpdatesByDefaultOverride: null | boolean,
-  identifierPrefix: string,
-  onUncaughtError: (error: Error) => void,
-  onCaughtError: (error: Error) => void,
-  onRecoverableError: (error: Error) => void,
-  transitionCallbacks: null | TransitionTracingCallbacks,
-) => ReactFiberReconciler.FiberRoot;
 
 function usePrevious(value) {
   const ref = React.useRef({});
@@ -86,22 +65,9 @@ const StageWrap = (props) => {
     null,
   );
 
-  const _setRef = (stage) => {
-    const { forwardedRef } = props;
-    if (!forwardedRef) {
-      return;
-    }
-    if (typeof forwardedRef === 'function') {
-      forwardedRef(stage);
-    } else {
-      forwardedRef.current = stage;
-    }
-  };
-
   const isStrictMode = useIsReactStrictMode();
 
   const destroyStage = () => {
-    _setRef(null);
     // CRITICAL: flushSyncFromReconciler is required here to ensure pending work
     // (e.g. stale MobX updates on child components) is flushed synchronously
     // before the tree is torn down. Without it, unmounting a Stage can leave
@@ -110,6 +76,7 @@ const StageWrap = (props) => {
       KonvaRenderer.updateContainer(null, fiberRef.current, null);
     });
     stage.current?.destroy();
+    stage.current?.off(EVENTS_NAMESPACE);
     stage.current = null;
   };
 
@@ -121,19 +88,13 @@ const StageWrap = (props) => {
     }
 
     // If stage already exists (re-ordering scenario), reuse it
-    if (stage.current) {
-      _setRef(stage.current);
-    } else {
+    if (!stage.current) {
       stage.current = new Konva.Stage({
         width: props.width,
         height: props.height,
         container: container.current,
       });
-
-      _setRef(stage.current);
-
-      // @ts-ignore
-      fiberRef.current = (KonvaRenderer.createContainer as NewCreateContainer)(
+      fiberRef.current = KonvaRenderer.createContainer(
         stage.current,
         ConcurrentRoot,
         null,
@@ -144,13 +105,6 @@ const StageWrap = (props) => {
         console.error,
         console.error,
         null,
-      );
-
-      KonvaRenderer.updateContainer(
-        React.createElement(Bridge, {}, props.children),
-        fiberRef.current,
-        null,
-        () => {},
       );
     }
 
@@ -165,7 +119,15 @@ const StageWrap = (props) => {
   }, []);
 
   React.useLayoutEffect(() => {
-    _setRef(stage.current);
+    // Older Konva versions use the normal asynchronous React scheduler.
+    if (typeof stage.current.eventBatchFunc === 'function') {
+      stage.current.eventBatchFunc(getEventBatch(props.eventBatchFunc));
+    }
+  }, [props.eventBatchFunc]);
+
+  React.useImperativeHandle(props.forwardedRef, () => stage.current, []);
+
+  React.useLayoutEffect(() => {
     applyNodeProps(stage.current, props, oldProps);
 
     // updateContainer schedules sync-lane work; with async scheduleMicrotask
@@ -220,12 +182,6 @@ export const version = '{VERSION}';
 // @ts-ignore
 export const KonvaRenderer = ReactFiberReconciler(HostConfig);
 
-// Konva event handlers (bound in makeUpdates) flush pending reconciler work
-// inline after the user handler returns, so Konva code that synchronously
-// reads node state right after firing an event (Transformer.update) sees the
-// committed result. See wrapEventHandler in makeUpdates.ts.
-_injectFlush(() => (KonvaRenderer as any).flushSyncWork());
-
 // we should inject into dev tools, but it is not working with React 19.2
 // with error "Invalid argument not valid semver ('' received)"
 // KonvaRenderer.injectIntoDevTools({
@@ -237,16 +193,15 @@ _injectFlush(() => (KonvaRenderer as any).flushSyncWork());
 //   reconcilerVersion: '19.2.0',
 // });
 
-// Add this interface
 interface StageProps extends React.RefAttributes<KonvaStage> {
   children?: React.ReactNode;
   width?: number;
   height?: number;
   name?: string;
+  eventBatchFunc?: (callback: () => void) => void;
   [key: string]: any;
 }
 
-// Update Stage component declaration
 export const Stage: React.FC<StageProps> = React.forwardRef((props, ref) => {
   return React.createElement(
     FiberProvider,

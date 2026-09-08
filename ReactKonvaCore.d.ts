@@ -18,6 +18,7 @@ export interface KonvaNodeEvents {
   onTouchStart?(evt: Konva.KonvaEventObject<TouchEvent>): void;
   onTouchMove?(evt: Konva.KonvaEventObject<TouchEvent>): void;
   onTouchEnd?(evt: Konva.KonvaEventObject<TouchEvent>): void;
+  onTouchCancel?(evt: Konva.KonvaEventObject<TouchEvent>): void;
   onTap?(evt: Konva.KonvaEventObject<TouchEvent>): void;
   onDblTap?(evt: Konva.KonvaEventObject<TouchEvent>): void;
   onDragStart?(evt: Konva.KonvaEventObject<DragEvent>): void;
@@ -47,12 +48,7 @@ export interface KonvaNodeComponent<
   // We use React.ClassAttributes to fake the 'ref' attribute. This will ensure
   // consumers get the proper 'Node' type in 'ref' instead of the wrapper
   // component type.
-> extends React.FC<Props & KonvaNodeEvents & React.ClassAttributes<Node>> {
-  getPublicInstance(): Node;
-  getNativeNode(): Node;
-  // putEventListener(type: string, listener: Function): void;
-  // handleEvent(event: Event): void;
-}
+> extends React.FC<Props & KonvaNodeEvents & React.ClassAttributes<Node>> {}
 
 export interface StageProps
   extends Konva.NodeConfig,
@@ -60,9 +56,15 @@ export interface StageProps
     Pick<
       React.HTMLAttributes<HTMLDivElement>,
       'className' | 'role' | 'style' | 'tabIndex' | 'title'
-    > {}
+    > {
+  /**
+   * Wraps native Konva input inside react-konva's React batch (Konva 10.5+).
+   * Must call its callback exactly once, synchronously. For example: runInAction.
+   */
+  eventBatchFunc?: (callback: () => void) => void;
+}
 
-// Stage is the only real class because the others are stubs that only know how
+// Stage is the only React component because the others are stubs that only know how
 // to be rendered when they are under stage. Since there is no real backing
 // class and are in reality are a string literal we don't want users to actually
 // try and use them as a type. By defining them as a variable with an interface
@@ -73,7 +75,7 @@ export interface StageProps
 export var Stage: KonvaNodeComponent<Konva.Stage, StageProps>;
 export var Layer: KonvaNodeComponent<Konva.Layer, Konva.LayerConfig>;
 export var FastLayer: KonvaNodeComponent<Konva.FastLayer, Konva.LayerConfig>;
-export var Group: KonvaNodeComponent<Konva.Group, Konva.GroupConfig>;
+export var Group: KonvaNodeComponent<Konva.Group, Konva.ContainerConfig>;
 export var Label: KonvaNodeComponent<Konva.Label, Konva.LabelConfig>;
 
 /** Shapes */

@@ -16,15 +16,22 @@ describe('§12 memory / long-running app', () => {
       const before = Konva.stages.length;
       // Drop to 500 cycles if this test exceeds 30s on the dev machine.
       const CYCLES = 1000;
+      const handler = vi.fn();
       for (let i = 0; i < CYCLES; i++) {
+        const rectRef = React.createRef<Konva.Rect>();
         const result = render(
-          <Stage width={50} height={50}>
+          <Stage width={50} height={50} onClick={handler}>
             <Layer>
-              <Rect width={10} height={10} />
+              <Rect ref={rectRef} width={10} height={10} onClick={handler} />
             </Layer>
           </Stage>
         );
+        const stage = result.stage()!;
+        const rect = rectRef.current!;
         result.unmount();
+        stage.fire('click');
+        rect.fire('click');
+        expect(handler).not.toHaveBeenCalled();
       }
       await vi.waitFor(() => expect(Konva.stages.length).toBe(before));
     }

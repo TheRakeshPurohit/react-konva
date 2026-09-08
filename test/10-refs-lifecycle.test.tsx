@@ -20,6 +20,38 @@ const TINY_PNG_DATA_URL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII=';
 
 describe('§10 refs / dispose / lifecycle', () => {
+  it('Stage callback refs attach once and run their cleanup on replacement and unmount', () => {
+    const firstCleanup = vi.fn();
+    const secondCleanup = vi.fn();
+    const first = vi.fn(() => firstCleanup);
+    const second = vi.fn(() => secondCleanup);
+    const view = render(<Stage ref={first} width={50} height={50} />);
+    const stage = view.stage();
+    expect(first).toHaveBeenCalledExactlyOnceWith(stage);
+    view.rerender(<Stage ref={first} width={60} height={50} />);
+    expect(first).toHaveBeenCalledTimes(1);
+    expect(firstCleanup).not.toHaveBeenCalled();
+    view.rerender(<Stage ref={second} width={60} height={50} />);
+    expect(firstCleanup).toHaveBeenCalledTimes(1);
+    expect(second).toHaveBeenCalledExactlyOnceWith(stage);
+    view.unmount();
+    expect(secondCleanup).toHaveBeenCalledTimes(1);
+    expect(first).toHaveBeenCalledTimes(1);
+    expect(second).toHaveBeenCalledTimes(1);
+  });
+
+  it('Stage detaches a replaced object ref and clears the current ref on unmount', () => {
+    const first = React.createRef<Konva.Stage>();
+    const second = React.createRef<Konva.Stage>();
+    const view = render(<Stage ref={first} width={50} height={50} />);
+    const stage = first.current;
+    view.rerender(<Stage ref={second} width={50} height={50} />);
+    expect(first.current).toBeNull();
+    expect(second.current).toBe(stage);
+    view.unmount();
+    expect(second.current).toBeNull();
+  });
+
   it('§10.1 forwarded refs with useImperativeHandle survive unmount/remount', () => {
     interface Handle {
       bump: () => void;
@@ -130,7 +162,7 @@ describe('§10 refs / dispose / lifecycle', () => {
     expect(captured).toBeInstanceOf(Konva.Rect);
     expect(captured!.getStage()).toBeInstanceOf(Konva.Stage);
     result.unmount();
-    expect(captured!.getStage()).toBeNull();
+    expect(captured!.getStage() ?? null).toBeNull();
   });
 
   it('§10.5 use-image hook integrates with <Image> and updates on load', async () => {

@@ -1,0 +1,3996 @@
+{
+  "measuredAt": "2026-09-08T15:55:48.429Z",
+  "baseline": "HEAD",
+  "commit": "c644571d27bd5a37f551955736852ef605a8a134",
+  "node": "v25.6.1",
+  "cpu": "Apple M4 Max",
+  "os": "darwin 25.6.0",
+  "runs": [
+    {
+      "round": 0,
+      "variant": "baseline",
+      "react": "19.2.8",
+      "konva": "10.5.0",
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "results": [
+        {
+          "name": "transform/1/canvas-root",
+          "nodes": 1,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.0999996662139893,
+              "settledMs": 1.0999996662139893,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.000000238418579,
+              "settledMs": 1.000000238418579,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.8999996185302734,
+              "settledMs": 1.8999996185302734,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.8999998569488525,
+              "settledMs": 0.8999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.000000238418579,
+              "settledMs": 1.000000238418579,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/canvas-leaf",
+          "nodes": 1,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 0.8000001907348633,
+              "settledMs": 0.8000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.9999997615814209,
+              "settledMs": 0.9999997615814209,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.6000003814697266,
+              "settledMs": 0.6000003814697266,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3000001907348633,
+              "settledMs": 1.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.6000001430511475,
+              "settledMs": 0.6000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/above-stage",
+          "nodes": 1,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.0999999046325684,
+              "settledMs": 2.5999996662139893,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.3000001907348633,
+              "settledMs": 1.9000000953674316,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7999997138977051,
+              "settledMs": 1.8999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.1999995708465576,
+              "settledMs": 2.0999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.6000003814697266,
+              "settledMs": 2.500000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-root",
+          "nodes": 10,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 3.5999999046325684,
+              "settledMs": 3.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.6000003814697266,
+              "settledMs": 3.6000003814697266,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.5999999046325684,
+              "settledMs": 3.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.700000047683716,
+              "settledMs": 3.700000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.799999952316284,
+              "settledMs": 3.799999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-leaf",
+          "nodes": 10,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.6000001430511475,
+              "settledMs": 1.6000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2,
+              "settledMs": 2,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.6999998092651367,
+              "settledMs": 1.6999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.3000001907348633,
+              "settledMs": 2.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.5999996662139893,
+              "settledMs": 1.5999996662139893,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/above-stage",
+          "nodes": 10,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.3999998569488525,
+              "settledMs": 3.0999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.8999998569488525,
+              "settledMs": 2.999999761581421,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7000002861022949,
+              "settledMs": 3.299999475479126,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.40000009536743164,
+              "settledMs": 2.000000238418579,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.0999994277954102,
+              "settledMs": 3.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-root",
+          "nodes": 100,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 187.4000005722046,
+              "settledMs": 187.4000005722046,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 185.40000009536743,
+              "settledMs": 185.40000009536743,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 185.99999952316284,
+              "settledMs": 185.99999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 187.90000009536743,
+              "settledMs": 187.90000009536743,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 187.00000047683716,
+              "settledMs": 187.00000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-leaf",
+          "nodes": 100,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 23.100000381469727,
+              "settledMs": 23.100000381469727,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 23.200000047683716,
+              "settledMs": 23.200000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 23.200000286102295,
+              "settledMs": 23.200000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.40000033378601,
+              "settledMs": 21.40000033378601,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.200000524520874,
+              "settledMs": 22.200000524520874,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 5.000000238418579,
+              "settledMs": 23.299999475479126,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 10.599999189376831,
+              "settledMs": 30.399999618530273,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 6.200001001358032,
+              "settledMs": 24.700000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 6.400000095367432,
+              "settledMs": 23.899999856948853,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 7.000000476837158,
+              "settledMs": 24.300000190734863,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage/1000-dom",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 1000,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 16.69999933242798,
+              "settledMs": 43.299999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 16.00000023841858,
+              "settledMs": 42.40000033378601,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 16.90000081062317,
+              "settledMs": 42.90000033378601,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 16.200000047683716,
+              "settledMs": 42.999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 16.500000476837158,
+              "settledMs": 43.90000057220459,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "mousemove/5000/canvas-root/burst-8",
+          "nodes": 5000,
+          "owner": "canvas-root",
+          "rows": 5000,
+          "burst": 8,
+          "transform": false,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 35.299999952316284,
+              "settledMs": 35.299999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 34.700000047683716,
+              "settledMs": 34.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 34.69999980926514,
+              "settledMs": 34.69999980926514,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.30000019073486,
+              "settledMs": 35.30000019073486,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.200000047683716,
+              "settledMs": 35.200000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-idle/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 32,
+              "settledMs": 32,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 29.59999990463257,
+              "settledMs": 29.59999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 37.59999990463257,
+              "settledMs": 37.59999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 30.100000143051147,
+              "settledMs": 30.100000143051147,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 37.40000009536743,
+              "settledMs": 37.40000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-noop/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 38.30000019073486,
+              "settledMs": 38.30000019073486,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 30.90000009536743,
+              "settledMs": 30.90000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 38.299999952316284,
+              "settledMs": 38.299999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.59999990463257,
+              "settledMs": 31.59999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 39.700000047683716,
+              "settledMs": 39.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 0,
+      "variant": "current",
+      "react": "19.2.8",
+      "konva": "10.5.0",
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "results": [
+        {
+          "name": "transform/1/canvas-root",
+          "nodes": 1,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2,
+              "settledMs": 2,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.200000286102295,
+              "settledMs": 2.200000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.5,
+              "settledMs": 1.5,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.6000001430511475,
+              "settledMs": 1.6000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.6999998092651367,
+              "settledMs": 1.6999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/canvas-leaf",
+          "nodes": 1,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.4000000953674316,
+              "settledMs": 1.4000000953674316,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3999996185302734,
+              "settledMs": 1.3999996185302734,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.2000000476837158,
+              "settledMs": 1.2000000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.000000238418579,
+              "settledMs": 1.000000238418579,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.4000000953674316,
+              "settledMs": 1.4000000953674316,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/above-stage",
+          "nodes": 1,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.700000286102295,
+              "settledMs": 1.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.8000001907348633,
+              "settledMs": 1.8000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3000001907348633,
+              "settledMs": 1.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.5999999046325684,
+              "settledMs": 1.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.6000001430511475,
+              "settledMs": 1.6000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-root",
+          "nodes": 10,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2.1999998092651367,
+              "settledMs": 2.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.499999523162842,
+              "settledMs": 2.499999523162842,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.8999996185302734,
+              "settledMs": 1.8999996185302734,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.8999996185302734,
+              "settledMs": 1.8999996185302734,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.5999999046325684,
+              "settledMs": 2.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-leaf",
+          "nodes": 10,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2.3999996185302734,
+              "settledMs": 2.3999996185302734,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.5999999046325684,
+              "settledMs": 2.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.3999998569488525,
+              "settledMs": 2.3999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.200000286102295,
+              "settledMs": 2.200000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.000000238418579,
+              "settledMs": 2.000000238418579,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/above-stage",
+          "nodes": 10,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2.700000286102295,
+              "settledMs": 2.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.1999998092651367,
+              "settledMs": 2.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.3999998569488525,
+              "settledMs": 2.3999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.5999999046325684,
+              "settledMs": 2.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.700000286102295,
+              "settledMs": 2.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-root",
+          "nodes": 100,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 23.200000286102295,
+              "settledMs": 23.200000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.899999618530273,
+              "settledMs": 22.899999618530273,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.399999856948853,
+              "settledMs": 22.399999856948853,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.700000286102295,
+              "settledMs": 21.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.200000047683716,
+              "settledMs": 22.200000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-leaf",
+          "nodes": 100,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 21.800000429153442,
+              "settledMs": 21.800000429153442,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.500000476837158,
+              "settledMs": 21.500000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.500000476837158,
+              "settledMs": 21.500000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.799999952316284,
+              "settledMs": 21.799999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.899999618530273,
+              "settledMs": 21.899999618530273,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 22.699999809265137,
+              "settledMs": 22.699999809265137,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.600000143051147,
+              "settledMs": 21.600000143051147,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.09999990463257,
+              "settledMs": 22.09999990463257,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.899999856948853,
+              "settledMs": 21.899999856948853,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.899999618530273,
+              "settledMs": 21.899999618530273,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage/1000-dom",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 1000,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 39.19999933242798,
+              "settledMs": 39.19999933242798,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 40.19999980926514,
+              "settledMs": 40.19999980926514,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 39.299999952316284,
+              "settledMs": 39.299999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 38.700000524520874,
+              "settledMs": 38.700000524520874,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 42.399999380111694,
+              "settledMs": 42.399999380111694,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "mousemove/5000/canvas-root/burst-8",
+          "nodes": 5000,
+          "owner": "canvas-root",
+          "rows": 5000,
+          "burst": 8,
+          "transform": false,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 35.89999985694885,
+              "settledMs": 35.89999985694885,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 34.89999985694885,
+              "settledMs": 34.89999985694885,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 34.299999952316284,
+              "settledMs": 34.299999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 36.90000009536743,
+              "settledMs": 36.90000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.90000009536743,
+              "settledMs": 35.90000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-idle/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 31.799999952316284,
+              "settledMs": 31.799999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.399999856948853,
+              "settledMs": 31.399999856948853,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 39.09999990463257,
+              "settledMs": 39.09999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.799999952316284,
+              "settledMs": 31.799999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 38.299999952316284,
+              "settledMs": 38.299999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-noop/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 40.5,
+              "settledMs": 40.5,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 32.200000047683716,
+              "settledMs": 32.200000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 40.200000047683716,
+              "settledMs": 40.200000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 33.30000019073486,
+              "settledMs": 33.30000019073486,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 40,
+              "settledMs": 40,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "variant": "current",
+      "react": "19.2.8",
+      "konva": "10.5.0",
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "results": [
+        {
+          "name": "transform/1/canvas-root",
+          "nodes": 1,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.9000003337860107,
+              "settledMs": 1.9000003337860107,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.7999999523162842,
+              "settledMs": 1.7999999523162842,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.1999998092651367,
+              "settledMs": 1.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.700000286102295,
+              "settledMs": 1.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.6999995708465576,
+              "settledMs": 1.6999995708465576,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/canvas-leaf",
+          "nodes": 1,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.6000001430511475,
+              "settledMs": 1.6000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.2000000476837158,
+              "settledMs": 1.2000000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.1000001430511475,
+              "settledMs": 1.1000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.5,
+              "settledMs": 1.5,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.0999999046325684,
+              "settledMs": 1.0999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/above-stage",
+          "nodes": 1,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.5999999046325684,
+              "settledMs": 1.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.799999475479126,
+              "settledMs": 1.799999475479126,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.4000003337860107,
+              "settledMs": 1.4000003337860107,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.500000238418579,
+              "settledMs": 1.500000238418579,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.499999761581421,
+              "settledMs": 1.499999761581421,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-root",
+          "nodes": 10,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2.1999995708465576,
+              "settledMs": 2.1999995708465576,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.1999998092651367,
+              "settledMs": 2.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.3000001907348633,
+              "settledMs": 2.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.999999761581421,
+              "settledMs": 1.999999761581421,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.700000286102295,
+              "settledMs": 2.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-leaf",
+          "nodes": 10,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2.499999761581421,
+              "settledMs": 2.499999761581421,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.3000001907348633,
+              "settledMs": 2.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.5999999046325684,
+              "settledMs": 2.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.1999998092651367,
+              "settledMs": 2.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.8999998569488525,
+              "settledMs": 1.8999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/above-stage",
+          "nodes": 10,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2.5,
+              "settledMs": 2.5,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.3000001907348633,
+              "settledMs": 2.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.8999998569488525,
+              "settledMs": 1.8999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.1999995708465576,
+              "settledMs": 2.1999995708465576,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.200000286102295,
+              "settledMs": 2.200000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-root",
+          "nodes": 100,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 23.799999713897705,
+              "settledMs": 23.799999713897705,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 23.09999990463257,
+              "settledMs": 23.09999990463257,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.90000033378601,
+              "settledMs": 21.90000033378601,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.299999952316284,
+              "settledMs": 22.299999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 23.500000476837158,
+              "settledMs": 23.500000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-leaf",
+          "nodes": 100,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 23.600000143051147,
+              "settledMs": 23.600000143051147,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.40000009536743,
+              "settledMs": 21.40000009536743,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.09999990463257,
+              "settledMs": 22.09999990463257,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 23.90000033378601,
+              "settledMs": 23.90000033378601,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.19999933242798,
+              "settledMs": 22.19999933242798,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 22.100000143051147,
+              "settledMs": 22.100000143051147,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.100000619888306,
+              "settledMs": 22.100000619888306,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.49999976158142,
+              "settledMs": 21.49999976158142,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.90000009536743,
+              "settledMs": 22.90000009536743,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22,
+              "settledMs": 22,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage/1000-dom",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 1000,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 40.00000023841858,
+              "settledMs": 40.00000023841858,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 40.60000014305115,
+              "settledMs": 40.60000014305115,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 40.299999952316284,
+              "settledMs": 40.299999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 39.69999957084656,
+              "settledMs": 39.69999957084656,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 42.40000033378601,
+              "settledMs": 42.40000033378601,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "mousemove/5000/canvas-root/burst-8",
+          "nodes": 5000,
+          "owner": "canvas-root",
+          "rows": 5000,
+          "burst": 8,
+          "transform": false,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 34.40000009536743,
+              "settledMs": 34.40000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 34.19999980926514,
+              "settledMs": 34.19999980926514,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 37.09999990463257,
+              "settledMs": 37.09999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.80000019073486,
+              "settledMs": 35.80000019073486,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 36.40000009536743,
+              "settledMs": 36.40000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-idle/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 32.90000009536743,
+              "settledMs": 32.90000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.299999952316284,
+              "settledMs": 31.299999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 37.89999985694885,
+              "settledMs": 37.89999985694885,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.100000143051147,
+              "settledMs": 31.100000143051147,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 40.40000009536743,
+              "settledMs": 40.40000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-noop/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 34.799999952316284,
+              "settledMs": 34.799999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 32.700000047683716,
+              "settledMs": 32.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 33,
+              "settledMs": 33,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 43.09999990463257,
+              "settledMs": 43.09999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 32.700000047683716,
+              "settledMs": 32.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "variant": "baseline",
+      "react": "19.2.8",
+      "konva": "10.5.0",
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "results": [
+        {
+          "name": "transform/1/canvas-root",
+          "nodes": 1,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.3999993801116943,
+              "settledMs": 1.3999993801116943,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.8000001907348633,
+              "settledMs": 1.8000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7999999523162842,
+              "settledMs": 0.7999999523162842,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.2000000476837158,
+              "settledMs": 1.2000000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3000001907348633,
+              "settledMs": 1.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/canvas-leaf",
+          "nodes": 1,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1,
+              "settledMs": 1,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.8000004291534424,
+              "settledMs": 0.8000004291534424,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.8999996185302734,
+              "settledMs": 0.8999996185302734,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.1000001430511475,
+              "settledMs": 1.1000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7000002861022949,
+              "settledMs": 0.7000002861022949,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/above-stage",
+          "nodes": 1,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.000000238418579,
+              "settledMs": 2.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.5,
+              "settledMs": 1.8999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7999999523162842,
+              "settledMs": 1.799999475479126,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.9000003337860107,
+              "settledMs": 2.8999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7000002861022949,
+              "settledMs": 1.6999995708465576,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-root",
+          "nodes": 10,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 3.999999761581421,
+              "settledMs": 3.999999761581421,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.9000003337860107,
+              "settledMs": 3.9000003337860107,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 4,
+              "settledMs": 4,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.59999942779541,
+              "settledMs": 3.59999942779541,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.499999523162842,
+              "settledMs": 3.499999523162842,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-leaf",
+          "nodes": 10,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.5000004768371582,
+              "settledMs": 1.5000004768371582,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.1999998092651367,
+              "settledMs": 2.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.799999713897705,
+              "settledMs": 1.799999713897705,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.7999999523162842,
+              "settledMs": 1.7999999523162842,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.5,
+              "settledMs": 1.5,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/above-stage",
+          "nodes": 10,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.8000004291534424,
+              "settledMs": 3.299999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.8999998569488525,
+              "settledMs": 2.500000238418579,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.200000286102295,
+              "settledMs": 2.9000003337860107,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.1000001430511475,
+              "settledMs": 2.799999713897705,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7999999523162842,
+              "settledMs": 3,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-root",
+          "nodes": 100,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 191.40000081062317,
+              "settledMs": 191.40000081062317,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 188.69999933242798,
+              "settledMs": 188.69999933242798,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 189.099999666214,
+              "settledMs": 189.099999666214,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 191.69999957084656,
+              "settledMs": 191.69999957084656,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 190.60000014305115,
+              "settledMs": 190.60000014305115,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-leaf",
+          "nodes": 100,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 21.90000009536743,
+              "settledMs": 21.90000009536743,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.299999952316284,
+              "settledMs": 22.299999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.09999990463257,
+              "settledMs": 22.09999990463257,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.50000023841858,
+              "settledMs": 21.50000023841858,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.09999942779541,
+              "settledMs": 22.09999942779541,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 6.099999666213989,
+              "settledMs": 24.499999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 5.899999141693115,
+              "settledMs": 24.59999966621399,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 5.799998998641968,
+              "settledMs": 24.899999856948853,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 6.000000238418579,
+              "settledMs": 24.500000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 5.800000190734863,
+              "settledMs": 23.499999523162842,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage/1000-dom",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 1000,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 16.09999966621399,
+              "settledMs": 42.89999985694885,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 17.500000476837158,
+              "settledMs": 44.30000019073486,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 16.100000619888306,
+              "settledMs": 42.10000038146973,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 16.199999570846558,
+              "settledMs": 42.49999928474426,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 16.799999475479126,
+              "settledMs": 43.60000014305115,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "mousemove/5000/canvas-root/burst-8",
+          "nodes": 5000,
+          "owner": "canvas-root",
+          "rows": 5000,
+          "burst": 8,
+          "transform": false,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 35.19999980926514,
+              "settledMs": 35.19999980926514,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 38.50000023841858,
+              "settledMs": 38.50000023841858,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 36.19999980926514,
+              "settledMs": 36.19999980926514,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 34.90000009536743,
+              "settledMs": 34.90000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 33.799999713897705,
+              "settledMs": 33.799999713897705,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-idle/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 31,
+              "settledMs": 31,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.10000014305115,
+              "settledMs": 35.10000014305115,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.09999990463257,
+              "settledMs": 31.09999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 40,
+              "settledMs": 40,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 30.90000009536743,
+              "settledMs": 30.90000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-noop/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 31.600000143051147,
+              "settledMs": 31.600000143051147,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.700000047683716,
+              "settledMs": 31.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.59999990463257,
+              "settledMs": 35.59999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 32.59999990463257,
+              "settledMs": 32.59999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 41.700000047683716,
+              "settledMs": 41.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "variant": "baseline",
+      "react": "19.2.8",
+      "konva": "10.5.0",
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "results": [
+        {
+          "name": "transform/1/canvas-root",
+          "nodes": 1,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.3999998569488525,
+              "settledMs": 1.3999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.9000000953674316,
+              "settledMs": 0.9000000953674316,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.9999997615814209,
+              "settledMs": 0.9999997615814209,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.1000001430511475,
+              "settledMs": 1.1000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.2000000476837158,
+              "settledMs": 1.2000000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/canvas-leaf",
+          "nodes": 1,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1,
+              "settledMs": 1,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.6000001430511475,
+              "settledMs": 0.6000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7999999523162842,
+              "settledMs": 0.7999999523162842,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.4999997615814209,
+              "settledMs": 0.4999997615814209,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.0999999046325684,
+              "settledMs": 1.0999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/above-stage",
+          "nodes": 1,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.3999996185302734,
+              "settledMs": 2.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7000000476837158,
+              "settledMs": 2.0000007152557373,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.8000001907348633,
+              "settledMs": 2.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.9000000953674316,
+              "settledMs": 2.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.5999999046325684,
+              "settledMs": 1.9999995231628418,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-root",
+          "nodes": 10,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 3.9000000953674316,
+              "settledMs": 3.9000000953674316,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.700000047683716,
+              "settledMs": 3.700000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.700000286102295,
+              "settledMs": 3.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.5999999046325684,
+              "settledMs": 3.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 3.700000286102295,
+              "settledMs": 3.700000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-leaf",
+          "nodes": 10,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2,
+              "settledMs": 2,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.9000003337860107,
+              "settledMs": 1.9000003337860107,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.7999999523162842,
+              "settledMs": 1.7999999523162842,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.8999998569488525,
+              "settledMs": 1.8999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3000004291534424,
+              "settledMs": 1.3000004291534424,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/above-stage",
+          "nodes": 10,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.299999713897705,
+              "settledMs": 2.799999713897705,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.7999999523162842,
+              "settledMs": 2.90000057220459,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.8999998569488525,
+              "settledMs": 3.1000001430511475,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.9000000953674316,
+              "settledMs": 2.3999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.200000286102295,
+              "settledMs": 3.200000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-root",
+          "nodes": 100,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 190.09999990463257,
+              "settledMs": 190.09999990463257,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 188.69999980926514,
+              "settledMs": 188.69999980926514,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 188.59999918937683,
+              "settledMs": 188.59999918937683,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 190.49999904632568,
+              "settledMs": 190.49999904632568,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 188.39999985694885,
+              "settledMs": 188.39999985694885,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-leaf",
+          "nodes": 100,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 22.59999990463257,
+              "settledMs": 22.59999990463257,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.100000381469727,
+              "settledMs": 22.100000381469727,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.49999976158142,
+              "settledMs": 22.49999976158142,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.500000715255737,
+              "settledMs": 22.500000715255737,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.40000033378601,
+              "settledMs": 22.40000033378601,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 5.700000286102295,
+              "settledMs": 26.600000143051147,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 8.700000047683716,
+              "settledMs": 28.30000066757202,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 6.199999809265137,
+              "settledMs": 24.300000429153442,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 6.000000238418579,
+              "settledMs": 23.200000286102295,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 6.099999189376831,
+              "settledMs": 23.700000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage/1000-dom",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 1000,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 16.09999918937683,
+              "settledMs": 42.59999966621399,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 17.200000047683716,
+              "settledMs": 42.80000019073486,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 17.899999856948853,
+              "settledMs": 45.59999942779541,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 15.100000143051147,
+              "settledMs": 42.50000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 17.400001049041748,
+              "settledMs": 45.20000076293945,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "mousemove/5000/canvas-root/burst-8",
+          "nodes": 5000,
+          "owner": "canvas-root",
+          "rows": 5000,
+          "burst": 8,
+          "transform": false,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 35.10000014305115,
+              "settledMs": 35.10000014305115,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 34.69999980926514,
+              "settledMs": 34.69999980926514,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 38.299999952316284,
+              "settledMs": 38.299999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 36.200000047683716,
+              "settledMs": 36.200000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.700000047683716,
+              "settledMs": 35.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-idle/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 32.799999952316284,
+              "settledMs": 32.799999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.90000009536743,
+              "settledMs": 35.90000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.700000047683716,
+              "settledMs": 31.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.399999856948853,
+              "settledMs": 31.399999856948853,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 34.200000047683716,
+              "settledMs": 34.200000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-noop/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 31.799999952316284,
+              "settledMs": 31.799999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.700000047683716,
+              "settledMs": 31.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 39.200000047683716,
+              "settledMs": 39.200000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31.799999952316284,
+              "settledMs": 31.799999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 39.09999990463257,
+              "settledMs": 39.09999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "variant": "current",
+      "react": "19.2.8",
+      "konva": "10.5.0",
+      "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "results": [
+        {
+          "name": "transform/1/canvas-root",
+          "nodes": 1,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.7000000476837158,
+              "settledMs": 1.7000000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.6000003814697266,
+              "settledMs": 1.6000003814697266,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.499999761581421,
+              "settledMs": 1.499999761581421,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3999996185302734,
+              "settledMs": 1.3999996185302734,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.5999999046325684,
+              "settledMs": 1.5999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/canvas-leaf",
+          "nodes": 1,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.8999998569488525,
+              "settledMs": 1.8999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3999998569488525,
+              "settledMs": 1.3999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3000001907348633,
+              "settledMs": 1.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 0.8999998569488525,
+              "settledMs": 0.8999998569488525,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3999996185302734,
+              "settledMs": 1.3999996185302734,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/1/above-stage",
+          "nodes": 1,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 1.4999995231628418,
+              "settledMs": 1.4999995231628418,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.500000238418579,
+              "settledMs": 1.500000238418579,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.3000004291534424,
+              "settledMs": 1.3000004291534424,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.7000000476837158,
+              "settledMs": 1.7000000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.8000001907348633,
+              "settledMs": 1.8000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-root",
+          "nodes": 10,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2.200000047683716,
+              "settledMs": 2.200000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.0999999046325684,
+              "settledMs": 2.0999999046325684,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.1999998092651367,
+              "settledMs": 2.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.999999761581421,
+              "settledMs": 1.999999761581421,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.3000004291534424,
+              "settledMs": 2.3000004291534424,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/canvas-leaf",
+          "nodes": 10,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2.1999998092651367,
+              "settledMs": 2.1999998092651367,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.4000003337860107,
+              "settledMs": 2.4000003337860107,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.500000476837158,
+              "settledMs": 2.500000476837158,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 1.999999761581421,
+              "settledMs": 1.999999761581421,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.1000003814697266,
+              "settledMs": 2.1000003814697266,
+              "transformerUpdates": 24,
+              "ownerEffects": 240,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/10/above-stage",
+          "nodes": 10,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 2.500000238418579,
+              "settledMs": 2.500000238418579,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.9000003337860107,
+              "settledMs": 2.9000003337860107,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.3000004291534424,
+              "settledMs": 2.3000004291534424,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.3000001907348633,
+              "settledMs": 2.3000001907348633,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 2.700000047683716,
+              "settledMs": 2.700000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-root",
+          "nodes": 100,
+          "owner": "canvas-root",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 23.30000066757202,
+              "settledMs": 23.30000066757202,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 23.5,
+              "settledMs": 23.5,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.699999570846558,
+              "settledMs": 21.699999570846558,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.80000066757202,
+              "settledMs": 21.80000066757202,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.899999618530273,
+              "settledMs": 22.899999618530273,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/canvas-leaf",
+          "nodes": 100,
+          "owner": "canvas-leaf",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 23.700000047683716,
+              "settledMs": 23.700000047683716,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.199999809265137,
+              "settledMs": 22.199999809265137,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.49999976158142,
+              "settledMs": 21.49999976158142,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.700000524520874,
+              "settledMs": 22.700000524520874,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.200000524520874,
+              "settledMs": 22.200000524520874,
+              "transformerUpdates": 24,
+              "ownerEffects": 2400,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 0,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 21.700001001358032,
+              "settledMs": 21.700001001358032,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 21.90000033378601,
+              "settledMs": 21.90000033378601,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.5,
+              "settledMs": 22.5,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 23,
+              "settledMs": 23,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 22.40000057220459,
+              "settledMs": 22.40000057220459,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "transform/100/above-stage/1000-dom",
+          "nodes": 100,
+          "owner": "above-stage",
+          "rows": 1000,
+          "burst": 1,
+          "transform": true,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 40.89999985694885,
+              "settledMs": 40.89999985694885,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 40.59999966621399,
+              "settledMs": 40.59999966621399,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 38.799999952316284,
+              "settledMs": 38.799999952316284,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 39.80000066757202,
+              "settledMs": 39.80000066757202,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 43.299999713897705,
+              "settledMs": 43.299999713897705,
+              "transformerUpdates": 24,
+              "ownerEffects": 24,
+              "inlineSteps": 24,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "mousemove/5000/canvas-root/burst-8",
+          "nodes": 5000,
+          "owner": "canvas-root",
+          "rows": 5000,
+          "burst": 8,
+          "transform": false,
+          "events": 24,
+          "samples": [
+            {
+              "dispatchMs": 34.90000009536743,
+              "settledMs": 34.90000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.30000042915344,
+              "settledMs": 35.30000042915344,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.80000019073486,
+              "settledMs": 35.80000019073486,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 36.700000047683716,
+              "settledMs": 36.700000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 36.00000023841858,
+              "settledMs": 36.00000023841858,
+              "transformerUpdates": 0,
+              "ownerEffects": 24,
+              "inlineSteps": 3,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-idle/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 31.200000047683716,
+              "settledMs": 31.200000047683716,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 31,
+              "settledMs": 31,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 38,
+              "settledMs": 38,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 30.799999952316284,
+              "settledMs": 30.799999952316284,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 38.89999985694885,
+              "settledMs": 38.89999985694885,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        },
+        {
+          "name": "native-noop/10000",
+          "events": 10000,
+          "samples": [
+            {
+              "dispatchMs": 44.90000009536743,
+              "settledMs": 44.90000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 35.09999990463257,
+              "settledMs": 35.09999990463257,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 33.40000009536743,
+              "settledMs": 33.40000009536743,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 34.80000019073486,
+              "settledMs": 34.80000019073486,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            },
+            {
+              "dispatchMs": 32.5,
+              "settledMs": 32.5,
+              "transformerUpdates": 0,
+              "ownerEffects": 0,
+              "inlineSteps": 0,
+              "settledStaleReads": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "baseline": "12d49161bd96f9ca23248e872b707aebbf808e5b9b3eb71481baee775f4abb5f",
+    "current": "02b3b4c32b42aeb0e6df8567afe37c29a3caf2bb90f5e7300f6bfd76f26091ea"
+  },
+  "konvaBuilds": {
+    "baseline": {
+      "version": "10.5.0",
+      "libHash": "069beac4115ef78e107678a89fa17c18600912cfef88d39c0f5da041e16982b5"
+    },
+    "current": {
+      "version": "10.5.0",
+      "libHash": "069beac4115ef78e107678a89fa17c18600912cfef88d39c0f5da041e16982b5"
+    }
+  }
+}

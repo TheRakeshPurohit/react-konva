@@ -18,7 +18,7 @@ if (typeof (globalThis as any).IS_REACT_ACT_ENVIRONMENT === 'undefined') {
   (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 }
 
-// Suppress two noisy *expected* warnings from React's custom-reconciler
+// Suppress expected warnings from React's custom-reconciler
 // interaction with `act`. Anything else is captured per-test and surfaced
 // in afterEach so silent regressions can't hide. Tests that intentionally
 // trigger a console.error should install their own `vi.spyOn(console,
@@ -52,8 +52,8 @@ const reactAct: ((cb: () => any) => any) | undefined = (React as any).act;
 
 // In prod, react-dom's `flushSync` drains only react-dom's roots — the Konva
 // secondary reconciler has its own scheduling. Stage's useLayoutEffect calls
-// `KonvaRenderer.flushSyncWork()` for the same reason (see ReactKonvaCore
-// .tsx:171-180); the prod-mode polyfills below mirror that pattern.
+// `KonvaRenderer.flushSyncWork()` for the same reason; the prod-mode
+// polyfills below mirror that pattern.
 const flushBoth = (cb: () => void) => {
   flushSync(cb);
   KonvaRenderer.flushSyncWork();
@@ -117,12 +117,19 @@ export function render(ui: React.ReactElement): KonvaRenderResult {
 }
 
 export function cleanup() {
+  const errors: unknown[] = [];
   while (mountedRoots.length > 0) {
     const { root, container } = mountedRoots.pop()!;
     try {
       sync(() => root.unmount());
-    } catch {}
-    container.parentNode?.removeChild(container);
+    } catch (error) {
+      errors.push(error);
+    } finally {
+      container.parentNode?.removeChild(container);
+    }
+  }
+  if (errors.length > 0) {
+    throw new AggregateError(errors, errors.map(String).join('\n'));
   }
 }
 

@@ -1,54 +1,63 @@
-// §11 — SSR / static rendering.
-// Runs in Node WITHOUT a DOM. Asserts:
-//   1. Importing react-konva from a Node-only file does not crash on
-//      `window` or `document` access at module-load time.
-//   2. mobx-react-lite's `enableStaticRendering(true)` either works or fails
-//      loudly (no half-initialized state).
-//
-// Vitest's browser mode applies globally, so this runs as a standalone
-// Node script (`node test/11-ssr.mjs`) wired into npm scripts.
-
+// Server rendering must work without a DOM or a native canvas backend.
+// Run against built files so packaging and both module formats are exercised.
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { createRequire } from 'node:module';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { enableStaticRendering, observer } from 'mobx-react-lite';
+import { observable, onBecomeObserved } from 'mobx';
 
-// CRITICAL: do NOT pre-create a JSDOM here. The whole point is to verify
-// react-konva loads cleanly in a Node environment with no `window`/`document`.
-assert.equal(typeof globalThis.window, 'undefined', 'window must be undefined');
-assert.equal(
-  typeof globalThis.document,
-  'undefined',
-  'document must be undefined'
-);
+assert.equal(typeof globalThis.window, 'undefined');
+assert.equal(typeof globalThis.document, 'undefined');
 
-// §11.1 — module-load smoke test.
-let RK;
-try {
-  RK = await import('../es/ReactKonvaCore.js');
-} catch (err) {
-  // konva itself may touch globals on import. We accept that, but the failure
-  // mode must be a clean error — not a partial module that later corrupts.
-  assert.fail(`react-konva module load crashed: ${err.message}`);
-}
-assert.ok(typeof RK.Stage === 'object' || typeof RK.Stage === 'function');
-assert.ok(typeof RK.Layer === 'string');
-assert.ok(typeof RK.Rect === 'string');
-assert.ok(typeof RK.KonvaRenderer === 'object', 'KonvaRenderer must be exported');
-console.log('§11.1 module-load OK');
-
-// §11.2 — enableStaticRendering(true) does not blow up react-konva.
-const { enableStaticRendering, observer } = await import('mobx-react-lite');
-const { observable } = await import('mobx');
+const require = createRequire(import.meta.url);
+const entries = [
+  ['CommonJS core', () => require('../lib/ReactKonvaCore.js')],
+  ['ES module core', () => import('../es/ReactKonvaCore.js')],
+  ['package main', () => require('..')],
+  ['ES module full', () => import('../es/ReactKonva.js')],
+];
 
 enableStaticRendering(true);
-const store = observable({ x: 1 });
-const Comp = observer(() => null);
-assert.ok(typeof Comp === 'function' || typeof Comp === 'object');
-// react-konva must not have eager DOM/canvas dependency that conflicts with
-// static rendering. We don't `renderToString` here (that needs a renderer);
-// the contract is: react-konva imports must not reach for `window`/`document`
-// at module-load time. The §11.1 success above already proves that.
-console.log('§11.2 enableStaticRendering OK');
+try {
+  for (const [name, load] of entries) {
+    const { Stage, Layer, Rect, KonvaRenderer } = await load();
+    assert.equal(typeof KonvaRenderer, 'object');
+    const stageRef = React.createRef();
+    const store = observable({ title: 'Server drawing' });
+    let subscriptions = 0;
+    const dispose = onBecomeObserved(store, 'title', () => subscriptions++);
+    const Canvas = observer(() => React.createElement(
+      Stage,
+      { ref: stageRef, width: 50, height: 50, role: 'img', title: store.title },
+      React.createElement(Layer, null, React.createElement(Rect, { fill: 'red' })),
+    ));
+    assert.equal(
+      renderToString(React.createElement(Canvas)),
+      '<div role="img" title="Server drawing"></div>',
+      `${name}: Stage renders its container without mounting canvas children`,
+    );
+    assert.equal(stageRef.current, null, `${name}: no Stage is created on the server`);
+    assert.equal(subscriptions, 0, `${name}: no MobX subscription`);
+    dispose();
+    console.log(`${name}: server rendering OK`);
+  }
+} finally {
+  enableStaticRendering(false);
+}
 
-// Restore so subsequent unrelated tests don't see static rendering on.
-enableStaticRendering(false);
-
-console.log('\n§11 SSR / static rendering: all OK');
+// Exercise a missing optional capability using the installed latest Konva.
+// A missing hook must not prevent core imports or server rendering.
+for (const entry of ['lib/ReactKonvaCore.js', 'es/ReactKonvaCore.js']) {
+  execFileSync(process.execPath, ['--input-type=module', '-e', `
+    import assert from 'node:assert/strict';
+    import React from 'react';
+    import { renderToString } from 'react-dom/server';
+    import Konva from 'konva/lib/Core.js';
+    Konva.Stage.prototype.eventBatchFunc = undefined;
+    const { Stage } = await import('./${entry}');
+    assert.equal(renderToString(React.createElement(Stage, { title: 'Fallback' })), '<div title="Fallback"></div>');
+  `], { cwd: new URL('..', import.meta.url), stdio: 'inherit' });
+  console.log(`${entry}: missing native batch hook supported`);
+}

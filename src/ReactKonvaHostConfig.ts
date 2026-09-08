@@ -18,7 +18,6 @@ import {
 } from 'react-reconciler/constants.js';
 
 const NO_CONTEXT = {};
-const UPDATE_SIGNAL = {};
 
 // for react-spring capability
 (Konva.Node.prototype as any)._applyProps = applyNodeProps;
@@ -104,20 +103,12 @@ export function preparePortalMount() {
   return null;
 }
 
-export function prepareUpdate(domElement, type, oldProps, newProps) {
-  return UPDATE_SIGNAL;
-}
-
 export function resetAfterCommit() {
   // Noop
 }
 
 export function resetTextContent(domElement) {
   // Noop
-}
-
-export function shouldDeprioritizeSubtree(type, props) {
-  return false;
 }
 
 export function getRootHostContext() {
@@ -134,9 +125,7 @@ export const supportsMicrotasks = true;
 // Async — fixes the mobx-react-lite snapshot race. Stage's useLayoutEffect
 // then explicitly calls `flushSyncWork()` to keep parent useLayoutEffect able
 // to read Konva nodes added by subscribing children (see ReactKonvaCore.tsx).
-export const scheduleMicrotask = typeof queueMicrotask === 'function'
-  ? queueMicrotask
-  : (fn) => Promise.resolve(null).then(fn);
+export { scheduleMicrotask } from './EventBatch.js';
 export const noTimeout = -1;
 // export const schedulePassiveEffects = scheduleDeferredCallback;
 // export const cancelPassiveEffects = cancelDeferredCallback;
@@ -162,14 +151,7 @@ export function appendChild(parentInstance, child) {
   updatePicture(parentInstance);
 }
 
-export function appendChildToContainer(parentInstance, child) {
-  if (child.parent === parentInstance) {
-    child.moveToTop();
-  } else {
-    parentInstance.add(child);
-  }
-  updatePicture(parentInstance);
-}
+export const appendChildToContainer = appendChild;
 
 export function insertBefore(parentInstance, child, beforeChild) {
   // child._remove() will not stop dragging
@@ -181,9 +163,7 @@ export function insertBefore(parentInstance, child, beforeChild) {
   updatePicture(parentInstance);
 }
 
-export function insertInContainerBefore(parentInstance, child, beforeChild) {
-  insertBefore(parentInstance, child, beforeChild);
-}
+export const insertInContainerBefore = insertBefore;
 
 export function removeChild(parentInstance, child) {
   child.destroy();
@@ -191,11 +171,7 @@ export function removeChild(parentInstance, child) {
   updatePicture(parentInstance);
 }
 
-export function removeChildFromContainer(parentInstance, child) {
-  child.destroy();
-  child.off(EVENTS_NAMESPACE);
-  updatePicture(parentInstance);
-}
+export const removeChildFromContainer = removeChild;
 
 export function commitTextUpdate(textInstance, oldText, newText) {
   console.error(
@@ -223,6 +199,7 @@ export function hideTextInstance(textInstance) {
 export function unhideInstance(instance, props) {
   if (props.visible == null || props.visible) {
     instance.show();
+    updatePicture(instance);
   }
 }
 
@@ -234,7 +211,11 @@ export function clearContainer(container) {
   // Noop
 }
 
-export function detachDeletedInstance() {}
+export function detachDeletedInstance(instance) {
+  // React visits every deleted host node here, including descendants of a
+  // removed container. Konva.destroy() alone does not release their listeners.
+  instance.off(EVENTS_NAMESPACE);
+}
 
 export function getInstanceFromNode() {
   return null;
@@ -243,10 +224,6 @@ export function getInstanceFromNode() {
 export function beforeActiveInstanceBlur() {}
 
 export function afterActiveInstanceBlur() {}
-
-export function getCurrentEventPriority() {
-  return DefaultEventPriority;
-}
 
 export function prepareScopeUpdate() {}
 

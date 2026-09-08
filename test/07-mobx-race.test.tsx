@@ -11,19 +11,18 @@
 // to react-dom's that mobx's standard `useSyncExternalStore` integration
 // works the same way under both renderers.
 //
-// Mechanism: mobx-react-lite defers its `useSyncExternalStore` snapshot
-// bump (`adm.stateVersion = Symbol()`) to a queued handler gated by
-// `shouldCompute()`. If anything re-renders the observer between
+// Mechanism: the observer's `useSyncExternalStore` snapshot only changes
+// when MobX runs its queued invalidation callback, gated by `shouldCompute()`.
+// If anything re-renders the observer between
 // `onBecomeStale_` and `runReaction_`, the render's `reaction.track()`
 // resets deps to UP_TO_DATE_, `shouldCompute` returns false, the handler
 // skips, the Symbol stays stale, React's `useSyncExternalStore` bails out,
 // and the JSX update is discarded — leaving a stale Konva subtree.
 //
-// react-konva's scheduling can drive that interleaved re-render. With async
-// `scheduleMicrotask` (current), the secondary reconciler defers past the
-// race window; mobx's queued handler runs first, the Symbol bumps, and the
-// observer re-renders cleanly. This test guards against any scheduling
-// regression that would re-unmask the bug.
+// Async `scheduleMicrotask` avoids that interleaving with MobX's default
+// reaction scheduling, which this test uses. A custom reactionScheduler that
+// defers notifications can still reopen the race: React also flushes sync
+// work directly after passive effects, before queued microtasks can run.
 
 import * as React from 'react';
 import { it, expect, beforeEach, vi } from 'vitest';
@@ -57,8 +56,9 @@ it('§7 focus rect disappears when an observable flips off (no stale snapshot)',
     const focusedId = store.focusedId;
 
     // useState held in the same observer that mutates `focusedId` in its
-    // useEffect. The non-equal setHover dispatch is what schedules the
-    // interleaved re-render that races with mobx's queued reaction handler.
+    // useEffect. On deselection, setHover(null) repeats the current value;
+    // React can still invoke the observer before bailing out of that render.
+    // Tracking during that render can consume a pending MobX invalidation.
     const [, setHover] = React.useState<string | null>('init');
 
     React.useEffect(() => {
@@ -114,4 +114,44 @@ it('§7 focus rect disappears when an observable flips off (no stale snapshot)',
     expect(store.focusedId).toBe(null);
     expect(focusRectsOnCanvas(FOCUS_STROKE).length).toBe(0);
   });
+});
+
+it('batches observable updates from Konva event handlers', async () => {
+  const eventStore = observable({ count: 0 });
+  const rectRef = React.createRef<Konva.Rect>();
+  let commits = 0;
+  const Shape = observer(() => {
+    const count = eventStore.count;
+    React.useLayoutEffect(() => {
+      commits++;
+    });
+    return (
+      <Rect
+        ref={rectRef}
+        name={`count-${count}`}
+        onClick={() => {
+          runInAction(() => {
+            eventStore.count++;
+          });
+        }}
+      />
+    );
+  });
+
+  render(
+    <Stage width={100} height={100}>
+      <Layer>
+        <Shape />
+      </Layer>
+    </Stage>
+  );
+  commits = 0;
+
+  for (let index = 0; index < 8; index++) {
+    rectRef.current!.fire('click');
+  }
+
+  expect(commits).toBe(0);
+  await vi.waitFor(() => expect(rectRef.current!.name()).toBe('count-8'));
+  expect(commits).toBe(1);
 });

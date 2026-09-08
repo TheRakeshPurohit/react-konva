@@ -144,155 +144,77 @@ Demo: [https://codesandbox.io/s/6l97wny44z](https://codesandbox.io/s/6l97wny44z)
 
 ## Usage with Next.js
 
-**From `konva@10.0.0`, you don't need to do any extra steps. It will work out-of-the-box.**
+Konva 10+ works with Next.js without extra canvas setup. Use a
+[Client Component](https://nextjs.org/docs/app/api-reference/directives/use-client) (`'use client'`).
 
-If you use konva verion <= 9, continue reading.
-
-Note: `react-konva` is designed to work in the client-side. On the server side, it will render just empty div. So it doesn't make much sense to use react-konva for server-side rendering. In Next.js you may have issue like
-
-> Module not found: Can't resolve 'canvas'
-
-Why do we see this error? `canvas` module is used for canvas rendering in Node.JS environment. `konva` library will use it there, but it doesn't have this dependency explicitly.
-
-How to solve this issue? There are two approaches:
-
-### Approach 1: manually install canvas module
-
-You can install `canvas` module manually.
-
-```bash
-npm install canvas@next
-```
-
-The solution will solve the issue, but it will have unnecessary dependency on `canvas` module which may increase build time a little bit.
-
-### Approach 2: Use dynamic import
-
-Next.js docs: https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading
-
-With this approach your canvas component will be loaded on the client-side only. So you will not have any issues with server-side rendering. Also `next.js` will automatically understand that it doesn't need to load `canvas` module, because it is used for server-side rendering only.
-
-#### Step 1 - Create canvas component
-
-You need to define your canvas components somewhere in your `components` folder.
-
-**It must be placed outside of `pages` or `app` folder (because they are used for server rendering).**
-
-Your `components/canvas.js` file may look like this:
-
-```js
-import { Stage, Layer, Circle } from 'react-konva';
-
-function Canvas(props) {
-  return (
-    <Stage width={window.innerWidth} height={window.innerHeight}>
-      <Layer>
-        <Circle x={200} y={100} radius={50} fill="green" />
-      </Layer>
-    </Stage>
-  );
-}
-
-export default Canvas;
-```
-
-#### Step 2 - Use dynamic import
-
-Then you can use it in your page. Notice, it is imported to have `'use client';`.
-
-```js
-'use client';
-import dynamic from 'next/dynamic';
-
-const Canvas = dynamic(() => import('../components/canvas'), {
-  ssr: false,
-});
-
-export default function Page(props) {
-  return <Canvas />;
-}
-```
-
-#### Step 3 - Setup next.config.js
-
-1. In some versions of next.js you may need to set up `next.config.js` to make it work:
-
-```js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  webpack: (config) => {
-    config.externals = [...config.externals, { canvas: 'canvas' }]; // required to make Konva & react-konva work
-    return config;
-  },
-};
-
-module.exports = nextConfig;
-```
-
-If you are using `turbopack` you may need to use this configuration:
-
-```js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    turbo: {
-      resolveAlias: {
-        canvas: './empty.js',
-      },
-    },
-  },
-};
-
-module.exports = nextConfig;
-```
-
-Also create empty file `empty.js` in the root of your project. That file will be used as replacement for `canvas` library. As we don't really need to use it, it will be just empty file.
+Konva 9 and earlier need extra setup, such as installing `canvas` or
+[disabling SSR](https://nextjs.org/docs/app/guides/lazy-loading#skipping-ssr) for the canvas component.
 
 ### Usage with React Context
 
-**Note: this section may be not relevant, because this issue was fixed in `react-konva@18.2.2`. So context should work by default.**
+Components inside `Stage` receive React contexts from its parent tree automatically. This behavior is available since `react-konva@18.2.2`.
 
-Due to a [known issue](https://github.com/facebook/react/issues/13336) with React, Contexts are not accessible by children of the react-konva `Stage` component. If you need to subscribe to a context from within the `Stage`, you need to "bridge" the context by creating a `Provider` as a child of the `Stage`. For more info, see [this discussion](https://github.com/konvajs/react-konva/issues/188#issuecomment-478302062) and this [react-redux demo](https://github.com/konvajs/react-konva/issues/311#issuecomment-454411007). Here is an example of bridging the context ([live demo](https://codesandbox.io/s/ykqw8r4r21)):
-
-```js
-import React, { Component } from 'react';
-import Konva from 'konva';
-import { render } from 'react-dom';
+```jsx
+import React from 'react';
 import { Stage, Layer, Rect } from 'react-konva';
 
 const ThemeContext = React.createContext('red');
 
-const ThemedRect = () => {
-  const value = React.useContext(ThemeContext);
-  return <Rect x={20} y={50} width={100} height={100} fill={value} shadowBlur={10} />;
-};
+function ThemedRect() {
+  const fill = React.useContext(ThemeContext);
+  return <Rect width={100} height={100} fill={fill} />;
+}
 
-const Canvas = () => {
+function App() {
   return (
-    <ThemeContext.Consumer>
-      {(value) => (
-        <Stage width={window.innerWidth} height={window.innerHeight}>
-          <ThemeContext.Provider value={value}>
-            <Layer>
-              <ThemedRect />
-            </Layer>
-          </ThemeContext.Provider>
-        </Stage>
-      )}
-    </ThemeContext.Consumer>
+    <ThemeContext.Provider value="blue">
+      <Stage width={300} height={200}>
+        <Layer>
+          <ThemedRect />
+        </Layer>
+      </Stage>
+    </ThemeContext.Provider>
   );
-};
-
-class App extends Component {
-  render() {
-    return (
-      <ThemeContext.Provider value="blue">
-        <Canvas />
-      </ThemeContext.Provider>
-    );
-  }
 }
 ```
+
+## Event synchronization
+
+With Konva 10.5+, native input batches ordinary React state updates per Konva
+listener and commits them before that listener returns, keeping DOM and canvas in sync.
+This includes drag and transform events. To batch MobX reactions too, pass `runInAction`:
+
+```tsx
+import { runInAction } from 'mobx';
+
+<Stage eventBatchFunc={runInAction} width={600} height={400}>
+  {/* Existing layers, shapes, and handlers */}
+</Stage>
+```
+
+The wrapper must call its callback exactly once, synchronously. Older Konva versions
+use normal React scheduling and ignore this prop. See the [release notes](RELEASE_NOTES.md)
+for performance and compatibility details.
+
+## Development and tests
+
+Run `npm install` and `npx playwright install chromium` before the tests.
+
+- `npm test` runs browser tests with development and production React, performance counts, package builds, server rendering, and TypeScript checks.
+- `BROWSER=firefox npm test` and `BROWSER=webkit npm test` select other installed Playwright browsers.
+- `npm run test:performance` runs commit and calculation limits with production profiling builds.
+- `npm run test:ssr` checks all built entry points without a DOM or native canvas backend, including imports when the optional event hook is absent.
+- `npm run test:typings` checks the source and consumer examples.
+- `npm run bench:events -- HEAD` compares elapsed interaction time against a commit. See [the benchmark guide](benchmarks/README.md).
+
+All tests use the latest published Konva. Compatibility tests disable its optional
+hook; they do not install historical versions. CI runs the full suite in Chromium,
+Firefox, and WebKit. A separate job checks minimum React with latest Konva.
+Run development, production, and
+profiling suites sequentially because they share Vite's dependency cache.
+
+All interaction regressions run in the regular suite. There is no separate
+expected-failure command.
 
 ## [CHANGELOG](https://github.com/konvajs/react-konva/releases)
 

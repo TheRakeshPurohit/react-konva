@@ -8,6 +8,9 @@ execSync('tsc -outDir ./es', { stdio: 'inherit' });
 execSync('tsc -module commonjs -outDir ./lib', { stdio: 'inherit' });
 
 for (const out of ['es', 'lib']) {
+  if (out === 'es') {
+    writeFileSync(`${out}/package.json`, '{"type":"module"}\n');
+  }
   copyFileSync('ReactKonvaCore.d.ts', `${out}/ReactKonvaCore.d.ts`);
   const corePath = `${out}/ReactKonvaCore.js`;
   const replaced = readFileSync(corePath, 'utf8').replaceAll(

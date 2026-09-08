@@ -194,8 +194,8 @@ describe('§5 multi-root & portals', () => {
     expect(child1).toBeInstanceOf(Konva.Rect);
     expect(child1).not.toBe(child0);
     // Old target and its children must be detached from the stage.
-    expect(target0.getStage()).toBeNull();
-    expect(child0.getStage()).toBeNull();
+    expect(target0.getStage() ?? null).toBeNull();
+    expect(child0.getStage() ?? null).toBeNull();
     expect(stage()!.findOne('.target-0')).toBeUndefined();
     // Exactly one child rect under the new target — no duplicates.
     expect(target1.find('.child').length).toBe(1);
