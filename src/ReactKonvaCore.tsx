@@ -20,7 +20,7 @@ import type { Stage as KonvaStage } from 'konva/lib/Stage.js';
 import ReactFiberReconciler from 'react-reconciler';
 import { ConcurrentRoot } from 'react-reconciler/constants.js';
 import * as HostConfig from './ReactKonvaHostConfig.js';
-import { getEventBatch } from './EventBatch.js';
+import { getEventBatch, addPendingUnmount, prepareUnmounts } from './EventBatch.js';
 import {
   applyNodeProps,
   toggleStrictMode,
@@ -64,10 +64,24 @@ const StageWrap = (props) => {
   const pendingDestroy = React.useRef<ReturnType<typeof setTimeout> | null>(
     null,
   );
+  const isUnmounting = React.useRef(false);
+  const cancelUnmount = React.useRef<(() => void) | null>(null);
+
+  // Insertion effects stay mounted during StrictMode's layout-effect replay.
+  // Only mark deletion here; renderer updates belong in layout cleanup.
+  React.useInsertionEffect(() => {
+    isUnmounting.current = false;
+    return () => {
+      isUnmounting.current = true;
+    };
+  }, []);
 
   const isStrictMode = useIsReactStrictMode();
 
   const destroyStage = () => {
+    cancelUnmount.current?.();
+    cancelUnmount.current = null;
+    prepareUnmounts();
     // CRITICAL: flushSyncFromReconciler is required here to ensure pending work
     // (e.g. stale MobX updates on child components) is flushed synchronously
     // before the tree is torn down. Without it, unmounting a Stage can leave
@@ -81,6 +95,8 @@ const StageWrap = (props) => {
   };
 
   React.useLayoutEffect(() => {
+    cancelUnmount.current?.();
+    cancelUnmount.current = null;
     // Cancel any pending destruction (happens during re-ordering in strict mode)
     if (pendingDestroy.current) {
       clearTimeout(pendingDestroy.current);
@@ -110,7 +126,17 @@ const StageWrap = (props) => {
 
     return () => {
       if (isStrictMode) {
-        // Delay destruction to allow cancellation on remount
+        // Queue real removal before pending child work can render. Queuing it
+        // during replay lets a sibling Stage's flush discard this root's state.
+        const unmount = () => {
+          if (!isUnmounting.current) return;
+          cancelUnmount.current?.();
+          cancelUnmount.current = null;
+          KonvaRenderer.updateContainer(null, fiberRef.current, null);
+        };
+        cancelUnmount.current = addPendingUnmount(unmount);
+        unmount();
+        // Keep the Stage available for that remount.
         pendingDestroy.current = setTimeout(destroyStage, 0);
       } else {
         destroyStage();
@@ -139,6 +165,7 @@ const StageWrap = (props) => {
       fiberRef.current,
       null,
     );
+    prepareUnmounts();
     KonvaRenderer.flushSyncWork();
   });
 

@@ -11,6 +11,7 @@ unchanged until the maintainer chooses the release version.
 - Stage accepts an optional `eventBatchFunc`, such as MobX `runInAction`. It wraps native Konva work inside the React batch, so reactions finish before React commits. Shared callbacks remain deduplicated across Stages.
 - Direct programmatic `fire()` and drag calls outside a native input batch use normal asynchronous React scheduling. They do not force a canvas render after each handler. This preserves batching for event bursts and avoids forced flushing from React lifecycle methods.
 - Stage refs support React ref cleanup callbacks. Removed descendants release react-konva listeners. Suspense visibility changes request drawing when automatic drawing is disabled.
+- StrictMode Stage cleanup queues canvas-tree removal before pending child updates can render, while preserving child state during effect replay. This adds no forced flush.
 - Package exports route ES-module imports to the ES build and CommonJS imports to the CommonJS build. Existing minimal imports, with or without `.js`, remain supported. The ES output declares its module type.
 - Type declarations remove `getPublicInstance` and `getNativeNode`, which never existed at runtime. Code referencing those declarations must use node refs. Group props use Konva's container configuration.
 
@@ -56,7 +57,7 @@ DOM elements. The timing runner and measurements are in [benchmarks](benchmarks/
 
 Verified with registry Konva 10.5.0:
 
-- Chromium, Firefox, and WebKit: 142 correctness tests in both development and production, plus 38 performance checks in each browser. No skipped or expected-failure tests.
+- Chromium, Firefox, and WebKit: 146 correctness tests in both development and production, plus 38 performance checks in each browser. No skipped or expected-failure tests.
 - Minimum React and React DOM 19.2.0: the same full Chromium suite passes. The three-browser runs use React 19.2.8.
 - Built CommonJS and ES-module imports, server rendering with and without the optional hook, consumer types, and package contents pass validation. Packed-package tests cover imports without `require(ESM)`, minimal imports, CommonJS, and TypeScript NodeNext, Bundler, and legacy Node resolution.
 

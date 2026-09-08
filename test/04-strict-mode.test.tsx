@@ -5,7 +5,8 @@
 // double-invoke disabled.
 
 import * as React from 'react';
-import { describe, it, expect } from 'vitest';
+import { flushSync } from 'react-dom';
+import { describe, it, expect, vi } from 'vitest';
 import Konva from 'konva';
 import { FiberProvider } from 'its-fine';
 import { Stage, Layer, Rect, useStrictMode } from '../src/ReactKonva';
@@ -142,5 +143,161 @@ describe('§4 StrictMode', () => {
       </React.StrictMode>
     );
     expect(stage()!.eventListeners.mousedown.length).toBe(1);
+  });
+
+  it.each(['native input', 'DOM flush'])(
+    '§4.7 unmount discards pending child state after %s',
+    async (trigger) => {
+      const events: string[] = [];
+      let updateChild: () => void;
+      let hideStage: () => void;
+      const remove = () => {
+        updateChild();
+        hideStage();
+      };
+      const Child = () => {
+        const [width, setWidth] = React.useState(100);
+        updateChild = () => setWidth(200);
+        events.push(`child render ${width}`);
+        React.useLayoutEffect(() => {
+          return () => {
+            events.push('child cleanup');
+          };
+        }, []);
+        return <Rect width={width} height={20} />;
+      };
+      const Scene = () => {
+        React.useLayoutEffect(() => {
+          return () => {
+            events.push('parent cleanup');
+          };
+        }, []);
+        return (
+          <Stage width={300} height={300} onMouseDown={remove}>
+            <Layer>
+              <Child />
+            </Layer>
+          </Stage>
+        );
+      };
+      const Parent = () => {
+        const [visible, setVisible] = React.useState(true);
+        hideStage = () => setVisible(false);
+        return visible ? <Scene /> : null;
+      };
+      const view = render(
+        <React.StrictMode>
+          <Parent />
+        </React.StrictMode>
+      );
+      // Let mount scheduling drain before testing a new input task. Wrapping
+      // the input in act would hide the production scheduling order.
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      events.length = 0;
+
+      if (trigger === 'native input') {
+        view.stage()!.simulateMouseDown({ x: 5, y: 5 });
+      } else {
+        flushSync(remove);
+      }
+
+      await vi.waitFor(() => expect(events).toContain('child cleanup'));
+      expect(view.container.children).toHaveLength(0);
+      expect(events).toEqual(['parent cleanup', 'child cleanup']);
+    },
+  );
+
+  it('§4.8 preserves sibling Stage child state through StrictMode effect replay', () => {
+    const rects = [React.createRef<Konva.Rect>(), React.createRef<Konva.Rect>()];
+    const firstNodes: Konva.Rect[] = [];
+    const updates: (() => void)[] = [];
+    const Child = ({ index }: { index: number }) => {
+      const [width, setWidth] = React.useState(100);
+      updates[index] = () => setWidth(200);
+      React.useLayoutEffect(() => {
+        firstNodes[index] ??= rects[index].current!;
+      }, []);
+      return <Rect ref={rects[index]} width={width} height={20} />;
+    };
+    const Parent = () => {
+      const initialized = React.useRef(false);
+      React.useLayoutEffect(() => {
+        if (!initialized.current) {
+          initialized.current = true;
+          updates.forEach((update) => update());
+        }
+      }, []);
+      return (
+        <>
+          {rects.map((_, index) => (
+            <Stage key={index} width={300} height={300}>
+              <Layer>
+                <Child index={index} />
+              </Layer>
+            </Stage>
+          ))}
+        </>
+      );
+    };
+
+    render(
+      <React.StrictMode>
+        <Parent />
+      </React.StrictMode>
+    );
+    rects.forEach((ref, index) => {
+      expect(ref.current!.width()).toBe(200);
+      expect(ref.current).toBe(firstNodes[index]);
+    });
+  });
+
+  it('§4.9 discards child work when a hidden Stage is deleted before its timer', async () => {
+    const events: string[] = [];
+    let change: () => void;
+    let hide: () => void;
+    let remove: () => void;
+    const Child = () => {
+      const [width, setWidth] = React.useState(100);
+      change = () => setWidth(200);
+      events.push(`render ${width}`);
+      React.useLayoutEffect(() => {
+        return () => {
+          events.push('child cleanup');
+        };
+      }, []);
+      return <Rect width={width} height={20} />;
+    };
+    const Parent = () => {
+      const [visible, setVisible] = React.useState(true);
+      const [mounted, setMounted] = React.useState(true);
+      hide = () => setVisible(false);
+      remove = () => setMounted(false);
+      return mounted ? (
+        <React.Activity mode={visible ? 'visible' : 'hidden'}>
+          <Stage width={300} height={300}>
+            <Layer>
+              <Child />
+            </Layer>
+          </Stage>
+        </React.Activity>
+      ) : null;
+    };
+    const view = render(
+      <React.StrictMode>
+        <Parent />
+      </React.StrictMode>
+    );
+    // Start after mount scheduling settles, then hide and delete in one task.
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    events.length = 0;
+    flushSync(() => hide());
+    flushSync(() => {
+      change();
+      remove();
+    });
+
+    await vi.waitFor(() => expect(events).toContain('child cleanup'));
+    expect(view.container.children).toHaveLength(0);
+    expect(events).toEqual(['child cleanup']);
   });
 });

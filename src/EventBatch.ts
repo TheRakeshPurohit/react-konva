@@ -1,6 +1,7 @@
 import { flushSync } from 'react-dom';
 
 const pending = new Set<() => void>();
+const pendingUnmounts = new Set<() => void>();
 const enqueue =
   typeof queueMicrotask === 'function'
     ? queueMicrotask
@@ -9,6 +10,19 @@ let depth = 0;
 
 type EventBatchFunc = (callback: () => void) => void;
 const batches = new WeakMap<EventBatchFunc, EventBatchFunc>();
+
+export function addPendingUnmount(callback: () => void) {
+  pendingUnmounts.add(callback);
+  return () => {
+    pendingUnmounts.delete(callback);
+  };
+}
+
+// Hidden Stages may be deleted without another layout cleanup. Prepare their
+// root removals before either a scheduled render or a Stage's inline flush.
+export function prepareUnmounts() {
+  for (const callback of pendingUnmounts) callback();
+}
 
 export function getEventBatch(batch?: EventBatchFunc): EventBatchFunc {
   if (!batch) return batchEvents;
@@ -25,7 +39,10 @@ export function getEventBatch(batch?: EventBatchFunc): EventBatchFunc {
 // running. A completed native input batch can finish those same scheduled jobs.
 export function scheduleMicrotask(callback: () => void) {
   const run = () => {
-    if (pending.delete(run)) callback();
+    if (pending.delete(run)) {
+      prepareUnmounts();
+      callback();
+    }
   };
   pending.add(run);
   enqueue(run);
