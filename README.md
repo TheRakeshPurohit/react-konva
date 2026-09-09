@@ -205,7 +205,7 @@ Run `npm install` and `npx playwright install chromium` before the tests.
 - `npm run test:performance` runs commit and calculation limits with production profiling builds.
 - `npm run test:ssr` checks all built entry points without a DOM or native canvas backend, including imports when the optional event hook is absent.
 - `npm run test:typings` checks the source and consumer examples.
-- `npm run bench:events -- HEAD` compares elapsed interaction time against a commit. See [the benchmark guide](benchmarks/README.md).
+- `npm run bench:events -- HEAD` compares elapsed interaction time against a commit. See [the benchmark guide](https://github.com/konvajs/react-konva/blob/master/benchmarks/README.md).
 
 All tests use the latest published Konva. Compatibility tests disable its optional
 hook; they do not install historical versions. CI runs the full suite in Chromium,
