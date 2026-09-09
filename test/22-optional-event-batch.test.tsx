@@ -7,8 +7,8 @@ import { render } from './helpers/render';
 it.each([false, true])(
   'batches React updates asynchronously without the Konva hook (custom wrapper: %s)',
   async (custom) => {
-    // All tests use latest Konva. Disable only its public integration capability;
-    // this checks our fallback, not every behavior of historical Konva releases.
+    // All tests use latest Konva. Emulate the missing integration hook and
+    // unbatched native dispatch; this does not cover every historical behavior.
     const descriptor = Object.getOwnPropertyDescriptor(
       Konva.Stage.prototype,
       'eventBatchFunc',
@@ -17,6 +17,9 @@ it.each([false, true])(
       ...descriptor,
       value: undefined,
     });
+    const nativeBatch = vi
+      .spyOn(Konva.Stage.prototype, '_batchEvents')
+      .mockImplementation((run) => run());
     const ref = React.createRef<Konva.Rect>();
     const layoutReads: number[] = [];
     let canvasCommits = 0;
@@ -51,10 +54,14 @@ it.each([false, true])(
     }
     try {
       const mounted = render(<App />);
+      // Browser-generated hover events can arrive while the hook is absent.
+      const onMouseEnter = vi.fn();
+      mounted.stage()!.on('mouseenter', onMouseEnter);
+      mounted.stage()!.content.dispatchEvent(new MouseEvent('mouseenter'));
+      expect(onMouseEnter).toHaveBeenCalledOnce();
       canvasCommits = 0;
       layoutReads.length = 0;
-      // Direct fire() exercises the fallback without invoking the latest Konva's
-      // native dispatch, which itself requires its own eventBatchFunc getter.
+      // Direct fire() exercises React's asynchronous fallback batching.
       ref.current!.fire('click', {}, true);
       ref.current!.fire('click', {}, true);
       expect(ref.current!.width()).toBe(100);
@@ -70,6 +77,7 @@ it.each([false, true])(
       expect(batch).not.toHaveBeenCalled();
       mounted.unmount();
     } finally {
+      nativeBatch.mockRestore();
       Object.defineProperty(
         Konva.Stage.prototype,
         'eventBatchFunc',
